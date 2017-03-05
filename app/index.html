@@ -1,0 +1,138 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beer List</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <div class="container">
+      <div class="header clearfix">
+        
+        <div class="clearfix">
+          <h3 class="text-muted pull-left">Bird List</h3>
+          <span class="label label-success pull-right" id="network-status">Online</span>
+        </div>
+        <a href="#" data-target="#add-item" class="btn btn-lg btn-primary view-switcher pull-right">Add</a>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 view active" id="full-list">
+          <!--Full List View will render here-->
+        </div><!-- end full-list -->
+
+        <div class="col-lg-12 view" id="add-item">
+          <h3>Add Item</h3>
+          <div class="form">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" name="title" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea type="text" id="descriptioon" name="descriptioon" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group clearfix">
+              <button href="#" id="transcribe" class="pull-right btn btn-lg btn-info">Transcribe</button>
+            </div>
+            <div class="form-group clearfix">
+              <button href="#" id="upload-photo" class="pull-right btn btn-lg btn-success">Upload a photo</button>
+            </div>
+
+            <div class="form-group">
+              <p> Current Location: Lat 37, Long 122
+            </div>
+
+            <div class="form-group">
+                <button data-target="#full-list" id="cancel-add-item" class="btn btn-lg btn-default pull-left view-switcher">Cancel</button>
+                <button id="submit-item" class="btn btn-lg btn-info pull-right">Submit</button>
+            </div>
+          </div>
+        </div><!-- end add-item -->
+
+        <div class="col-lg-12 view" id="item-detail">
+          <!--Detail view will render here-->
+        </div><!-- end item-detail -->
+
+      </div>
+
+      <div class="footer">
+      </div>
+    </div>
+
+  <script id="full-list-template" type="text/x-handlebars-template">
+    <div class="list-group">
+      {{#each beers}}
+      <a data-item={{id}} href="#" data-target="#item-detail" class="list-group-item view-switcher">{{title}}</a> {{/each}}
+    </div>
+  </script>
+
+  <script id="item-detail-template" type="text/x-handlebars-template">
+    <h3>Item Detail</h3>
+    <div class="list-group">
+      <p id="show-title" class="list-group-item">{{title}}</p>
+      <p id="show-description" class="list-group-item">{{description}}</p>
+      <p id="show-image" class="list-group-item">
+        <span class="label">Image:</span>
+        <img src="" alt="">
+      </p>
+      <p id="show-location" class="list-group-item"><strong>Current Location: Lat {{location.latitude}}, Long {{location.longitude}}</strong></p>
+    </div>
+
+    <p>
+      <button data-target="#full-list" id="back-to-list" class="btn btn-lg btn-default view-switcher">Back to List</button>
+      <button id="edit-item" class="btn btn-lg btn-default pull-right">Edit</button>
+    </p>
+  </script>
+    
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="/bower_components/handlebars/handlebars.min.js"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
